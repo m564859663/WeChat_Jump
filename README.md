@@ -12,6 +12,7 @@
 ### 1. 获取棋子的中心位置
 使用OpenCV中模板匹配实现
 提供棋子图片chess.png
+
 <div align=center><img src="https://github.com/m564859663/WeChat_Jump/blob/master/chess.png"/></div>
 
 ```python
@@ -42,11 +43,15 @@ bottom_right = (top_left[0]+img_chess.shape[1], top_left[1]+img_chess.shape[0])
 img = cv2.rectangle(img_auto, top_left, bottom_right, (0, 0, 255), 3)
 imwrite("verify.png", img)
 ```
+
 <div align=center><img height=360 width=540 src="https://github.com/m564859663/WeChat_Jump/blob/master/verify.png"/></div>
+参考自 http://blog.csdn.net/firemicrocosm/article/details/48374979
+       http://blog.csdn.net/guduruyu/article/details/68490206
 
 ### 2. 获取下一个方块的中心位置
 ①当方块有白点时：
 采用与上一节中相同的模板匹配方法，提供模板white.png
+
 <div align=center><img src="https://github.com/m564859663/WeChat_Jump/blob/master/white.png"/></div>
 
 ②当方块为白色或方块未出现白点时，即匹配率低于95%时采用canny边缘算法
